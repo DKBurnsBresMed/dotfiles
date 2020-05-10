@@ -1,0 +1,19 @@
+/etc/apt/sources.list.d/kgilmer-speed-ricer-bionic.list:deb http://ppa.launchpad.net/kgilmer/speed-ricer/ubuntu bionic main
+/etc/apt/sources.list.d/sur5r-i3.list:deb https://debian.sur5r.net/i3/ bionic universe
+/etc/apt/sources.list.d/libretro-stable-bionic.list:deb http://ppa.launchpad.net/libretro/stable/ubuntu bionic main
+/etc/apt/sources.list.d/official-package-repositories.list:deb http://mirrors.evowise.com/linuxmint/packages tricia main upstream import backport 
+/etc/apt/sources.list.d/official-package-repositories.list:deb http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse
+/etc/apt/sources.list.d/official-package-repositories.list:deb http://archive.ubuntu.com/ubuntu bionic-updates main restricted universe multiverse
+/etc/apt/sources.list.d/official-package-repositories.list:deb http://archive.ubuntu.com/ubuntu bionic-backports main restricted universe multiverse
+/etc/apt/sources.list.d/official-package-repositories.list:deb http://security.ubuntu.com/ubuntu/ bionic-security main restricted universe multiverse
+/etc/apt/sources.list.d/official-package-repositories.list:deb http://archive.canonical.com/ubuntu/ bionic partner
+/etc/apt/sources.list.d/nilarimogard-webupd8-bionic.list:deb http://ppa.launchpad.net/nilarimogard/webupd8/ubuntu bionic main
+/etc/apt/sources.list.d/regolith-linux-release-bionic.list:deb http://ppa.launchpad.net/regolith-linux/release/ubuntu bionic main
+/etc/apt/sources.list.d/gregory-hainaut-pcsx2_official_ppa-bionic.list:deb http://ppa.launchpad.net/gregory-hainaut/pcsx2.official.ppa/ubuntu bionic main
+/etc/apt/sources.list.d/spotify.list:deb http://repository.spotify.com stable non-free
+/etc/apt/sources.list.d/nordvpn.list:deb https://repo.nordvpn.com/deb/nordvpn/debian stable main
+/etc/apt/sources.list.d/lutris-team-lutris-bionic.list:deb http://ppa.launchpad.net/lutris-team/lutris/ubuntu bionic main
+/etc/apt/sources.list.d/additional-repositories.list:deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/
+/etc/apt/sources.list.d/additional-repositories.list:deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main
+/etc/apt/sources.list.d/additional-repositories.list:deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/ ./
+/etc/apt/sources.list.d/webupd8team-indicator-kdeconnect-bionic.list:deb http://ppa.launchpad.net/webupd8team/indicator-kdeconnect/ubuntu bionic main

@@ -1,0 +1,19 @@
+[kgilmer-speed-ricer-bionic.list] ppa:kgilmer/speed-ricer
+[sur5r-i3.list] deb https://debian.sur5r.net/i3/ bionic universe
+[libretro-stable-bionic.list] ppa:libretro/stable
+[official-package-repositories.list] deb http://mirrors.evowise.com/linuxmint/packages tricia main upstream import backport 
+[official-package-repositories.list] deb http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse
+[official-package-repositories.list] deb http://archive.ubuntu.com/ubuntu bionic-updates main restricted universe multiverse
+[official-package-repositories.list] deb http://archive.ubuntu.com/ubuntu bionic-backports main restricted universe multiverse
+[official-package-repositories.list] deb http://security.ubuntu.com/ubuntu/ bionic-security main restricted universe multiverse
+[official-package-repositories.list] deb http://archive.canonical.com/ubuntu/ bionic partner
+[nilarimogard-webupd8-bionic.list] ppa:nilarimogard/webupd8
+[regolith-linux-release-bionic.list] ppa:regolith-linux/release
+[gregory-hainaut-pcsx2_official_ppa-bionic.list] ppa:gregory-hainaut/pcsx2.official.ppa
+[spotify.list] deb http://repository.spotify.com stable non-free
+[nordvpn.list] deb https://repo.nordvpn.com/deb/nordvpn/debian stable main
+[lutris-team-lutris-bionic.list] ppa:lutris-team/lutris
+[additional-repositories.list] deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/
+[additional-repositories.list] deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main
+[additional-repositories.list] deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/ ./
+[webupd8team-indicator-kdeconnect-bionic.list] ppa:webupd8team/indicator-kdeconnect
