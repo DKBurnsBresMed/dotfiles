@@ -1,0 +1,100 @@
+// vim:ts=4:sw=4:et
+{
+    // splitv split container with 2 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 1,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 763,
+               "width": 1280,
+               "x": 0,
+               "y": 18
+            },
+            "name": "config - /home/darren/.config/i3 - Geany",
+            "percent": 0.914285714285714,
+            "swallows": [
+               {
+               "class": "^Geany$",
+               "instance": "^geany$",
+               "title": "^config\\ \\-\\ \\/home\\/darren\\/\\.config\\/i3\\ \\-\\ Geany$",
+               "transient_for": "^$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            // splith split container with 2 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "splith",
+            "percent": 0.0857142857142858,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "none",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 438,
+                       "width": 1614,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "Terminal - darren@ThinkPad: ~",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                       "class": "^Xfce4\\-terminal$",
+                       "instance": "^xfce4\\-terminal$",
+                       "title": "^Terminal\\ \\-\\ darren\\@ThinkPad\\:\\ \\~$",
+                       "transient_for": "^$",
+                       "window_role": "^xfce4\\-terminal\\-1564120142\\-\\-2018133456$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    // splitv split container with 1 children
+                    "border": "normal",
+                    "floating": "auto_off",
+                    "layout": "splitv",
+                    "percent": 0.5,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "none",
+                            "current_border_width": 2,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 438,
+                               "width": 1614,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "name": "Terminal - cava",
+                            "percent": 1,
+                            "swallows": [
+                               {
+                               "class": "^Xfce4\\-terminal$",
+                               "instance": "^xfce4\\-terminal$",
+                               "title": "^Terminal\\ \\-\\ cava$",
+                               "transient_for": "^$",
+                               "window_role": "^xfce4\\-terminal\\-1564120622\\-154751753$"
+                               }
+                            ],
+                            "type": "con"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
