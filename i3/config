@@ -98,53 +98,53 @@ bindsym $mod+x exec arandr
 ################################################################################################
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send -t 500 -i video-display 'Backlight +10'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send -t 500 -i video-display 'Backlight -10'"
+#bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send -t 500 -i video-display 'Backlight +10'"
+#bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send -t 500 -i video-display 'Backlight -10'"
 #bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"; exec "notify-send Backlight is $(printf '%.0f' $(xbacklight -get))"
 #bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; exec "notify-send Backlight is $(printf '%.0f' $(xbacklight -get))"
 
+bindsym XF86MonBrightnessUp exec --no-startup-id bash -c 'b=$(xrandr --verbose | grep -i brightness | head -n 1 | cut -d" " -f2) && b2=$(echo -e "import math\nf = lambda x: (1 - 1/(1+math.exp(4*x-2)))\nprint(\\\"%.2f\\\" % f(0.1+$b))" | python) && xrandr --output eDP-1 --brightness $b2'
+bindsym XF86MonBrightnessDown exec --no-startup-id bash -c 'b=$(xrandr --verbose | grep -i brightness | head -n 1 | cut -d" " -f2) && b2=$(echo -e "import math\nf = lambda x: (1 - 1/(1+math.exp(4*x-2)))\nprint(\\\"%.2f\\\" % f(-0.1+$b))" | python) && xrandr --output eDP-1 --brightness $b2'
 
 # Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec palemoon
-bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
-bindsym $mod+Shift+F3 exec gksu pcmanfm
+bindsym $mod+F2 exec firefox
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
+bindsym $mod+Shift+S exec --no-startup-id flameshot gui
+bindsym $mod+Print --release exec --no-startup-id flameshot
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-# bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-# focus_follows_mouse no
+focus_follows_mouse no
 
 # change focus
 bindsym $mod+j focus left
+bindsym $mod+Left focus left
+
+bindsym $mod+Down focus down
 bindsym $mod+k focus down
+
+bindsym $mod+Up focus up
 bindsym $mod+l focus up
+
+bindsym $mod+Right focus right
 bindsym $mod+semicolon focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
+
+bindsym $mod+Shift+k move down
 bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+
+bindsym $mod+Shift+semicolon move right
 bindsym $mod+Shift+Right move right
+
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+Up move up
+
 
 #assign workspaces to specific monitors!
 bindsym $mod+control+Up exec "i3-msg move workspace to output up"
@@ -178,7 +178,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # toggle sticky
-bindsym $mod+Shift+s sticky toggle
+#bindsym $mod+Shift+s sticky toggle
 
 # focus the parent and child containers
 bindsym $mod+a focus parent
@@ -425,14 +425,15 @@ mode "$mode_browse" {
 # finds out, if available)
 #-c /home/darren/.i3/i3blocks.conf
 bar {
-  	#status_command i3blocks -c /home/darren/.i3/i3blocks.conf
-	status_command i3blocks -c /home/darren/.config/i3blocks-2/i3blocks_2.conf
-  	# status_command i3status
-  	position bottom
-	height 18
+	#status_command i3blocks -c /home/darren/.i3/i3blocks.conf
+	# status_command i3blocks -c /home/darren/.config/i3blocks-2/i3blocks_2.conf
+	# status_command i3status
+	status_command i3blocks
+	position bottom
+	# height 18
         mode                        dock
         strip_workspace_numbers     yes
-        height                      18
+        # height                      18
         font                        pango: xos4 Terminess Powerline, awesome 9
 #       separator_symbol            "::"
 
@@ -527,13 +528,16 @@ new_float pixel 3
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
+# compiler (for transparency etc)
+exec --no-startup-id compton
+
 # sound stuff
 exec --no-startup-id pulseaudio
 exec --no-startup-id volumeicon
 # exec --no-startup-id pa-applet
 
 # initiate policy kit
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+exec_always --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 # exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 
 
@@ -560,14 +564,14 @@ exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
 
 #runs in bar, so workspace doesn't matter. network manager applet
-exec nm-applet
+exec_always nm-applet
 
 #layout of workspace 1
 exec --no-startup-id i3-msg 'workspace $WS1; append_layout /home/darren/.config/i3/layouts/DB.json'
 
 #programs for worskpace 1
-exec xfce4-terminal --hide-borders --hide-toolbar --hide-menubar --hide-scrollbar
-exec nemo
+exec workspace $ws1 xfce4-terminal --hide-borders --hide-toolbar --hide-menubar --hide-scrollbar
+exec workspace $ws1 nemo
 
 # programs for workspace 2
 exec --no-startup-id i3-msg 'workspace $WS2; exec firefox www.duckduckgo.com'
@@ -580,7 +584,7 @@ exec vlc
 exec --no-startup-id i3-msg 'workspace $WS1'
 
 #Task manager
-bindsym $mod+i workspace $WS1; exec --no-startup-id i3-msg 'exec xfce4-terminal --hide-borders --hide-toolbar --hide-menubar --hide-scrollbar -e "htop -d 2.5 --sort-key=PERCENT_MEM"'
+bindsym $mod+i workspace $WS1; exec --no-startup-id i3-msg 'exec xfce4-terminal --hide-borders --hide-toolbar --hide-menubar --hide-scrollbar -e "htop -C -d 2.5 --sort-key=PERCENT_MEM"'
 #bindsym $mod+i workspace $WS1; exec --no-startup-id i3-msg 'exec xfce4-taskmanager'
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
